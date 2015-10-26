@@ -1,0 +1,176 @@
+//Based off of the default brackets dark theme. 
+//Made by ssebs
+
+/* Define some variables used in multiple places */
+
+@background: #0f0f0f;
+@foreground: #d3ffcf;
+
+/* Code Styling */
+
+.CodeMirror,
+.CodeMirror-scroll {
+    background-color: @background;
+    color: @foreground;
+}
+.CodeMirror-focused .CodeMirror-activeline-background {
+    background: #2f2f2f;
+}
+.show-line-padding .CodeMirror-focused .CodeMirror-activeline-background {
+    box-shadow: inset 15px 0 0 0 #000;
+}
+.CodeMirror-focused .CodeMirror-activeline {
+    .CodeMirror-gutter-elt {
+        background: rgba(0, 0, 0, 0.2);
+        color: #fff;
+    }
+    .inline-widget .CodeMirror-gutter-elt {
+        color: #767676;
+    }
+}
+.cm-atom,
+.cm-string,
+.cm-string-2,
+.cm-hr {
+    color: #00ff93;
+}
+.cm-number,
+.cm-attribute,
+.cm-plus {
+    color: #01d612;
+}
+.cm-def,
+.cm-property {
+    color: #14c192;
+}
+.cm-variable,
+.cm-variable-2,
+.cm-variable-3,
+.cm-operator,
+.cm-meta,
+.cm-bracket {
+    color: @foreground;
+}
+.cm-comment {
+    color: #767676;
+}
+.cm-error,
+.cm-minus {
+    color: #dc322f;
+}
+.cm-header {
+    color: #d85896;
+}
+.cm-link {
+    color: #b77fdb;
+    text-decoration: none;
+}
+.cm-rangeinfo {
+    color: #6c71c4;
+}
+.cm-keyword,
+.cm-qualifier,
+.cm-builtin,
+.cm-tag,
+.cm-quote {
+    color: #00e813;
+}
+
+/* Extra CSS */
+
+.CodeMirror-searching {
+    background-color: #d3cd69;
+    &.searching-current-match {
+        background-color: #f6a644;
+    }
+}
+.CodeMirror-cursor {
+    border-left: 1px solid #c5c8c6 !important;
+}
+.CodeMirror-gutters {
+    background-color: @background;
+    border-right: none;
+}
+.CodeMirror-linenumber {
+    color: #00980c;
+}
+.CodeMirror .CodeMirror-selected {
+    background: #333f48;
+}
+.CodeMirror-focused .CodeMirror-selected {
+    background: #8b0000;
+}
+.CodeMirror-matchingbracket,
+.CodeMirror-matchingtag {
+    /* Ensure visibility against gray inline editor background */
+    background-color: rgba(12, 170, 164, 0.57);
+    color: @foreground !important;
+}
+.CodeMirror-overwrite .CodeMirror-cursor {
+    border-left: none !important;
+    border-bottom: 1px solid #fff;
+}
+
+/*
+    CodeMirror's use of descendant selectors for certain styling causes problems when editors are
+    nested because, for items in the inner editor, the left-hand clause in the selector will now
+    match either the actual containing CodeMirror instance *OR* the outer "host" CodeMirror instance.
+    TODO (issue #324): We'll still have problems if editors can be nested more than one level deep,
+    or if any other descendant-selector-driven CM styles can differ between inner & outer editors
+    (potential problem areas include line wrap and coloring theme: basically, anything in codemirror.css
+    that uses a descandant selector where the CSS class name to the left of the space is something
+    other than a vanilla .CodeMirror)
+ */
+
+.CodeMirror {
+    .CodeMirror {
+        background: transparent;
+    }
+    .CodeMirror .CodeMirror-gutters {
+        background: transparent;
+        border-right: none;
+    }
+    .CodeMirror .CodeMirror-activeline-background {
+        background: transparent;
+    }
+    .CodeMirror .CodeMirror-activeline .CodeMirror-gutter-elt {
+        background: transparent;
+        color: #767676;
+    }
+    .CodeMirror-focused .CodeMirror-activeline-background {
+        background: #2f2f2f;
+    }
+    .CodeMirror-focused .CodeMirror-activeline {
+        .CodeMirror-gutter-elt {
+            background: rgba(0, 0, 0, 0.88);
+            color: #fff;
+        }
+    }
+}
+.CodeMirror-foldgutter-open:after {
+    color: #666;
+}
+.CodeMirror-foldgutter-folded:after {
+    color: #aaa;
+}
+.CodeMirror.over-gutter,
+.CodeMirror-activeline {
+    .CodeMirror-foldgutter-open:after {
+        color: #888;
+    }
+}
+.CodeMirror-foldmarker {
+    border-color: #000;
+    color: #ccc;
+    background-color: #444;
+}
+
+/* Non-editor styling */
+
+.image-view,
+.not-editor {
+    background-color: @background;
+}
+.view-pane .image-view {
+    color: @foreground;
+}

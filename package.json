@@ -1,0 +1,15 @@
+{
+    "name": "ssebs.hacker-theme",
+    "title": "Hacker Theme",
+    "description": "This theme is made to look like a black terminal with green text",
+    "homepage": "https://github.com/ssebs/hacker-theme",
+    "version": "1.0.0",
+    "author": "Sebastian Safari <ssebs@ymail.com> (http://ssebs.github.io)",
+    "license": "MIT",
+    "theme": {
+        "file": "theme.less",
+        "dark": true,
+        "addModeClass": true
+    },
+    "keywords": ["theme"]
+}
